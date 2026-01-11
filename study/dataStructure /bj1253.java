@@ -13,44 +13,46 @@ public class bj1253 {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    int ans = 0;
 
-    // 1. 첫번째 줄에는 수의 갯수를 입력받음
-    int num = Integer.parseInt(br.readLine());
-
-    // 2. 두 번째 줄에는 수를 입력받음 -> 정렬
+    // 1. 첫 번째 수의 갯수를 입력받음
+    int size = Integer.parseInt(br.readLine());
+    // 2. 두 번째 수의 값을 입력받음
     StringTokenizer st = new StringTokenizer(br.readLine());
-    long[] arr = new long[num];
-    for (int i = 0; i < num; i++) {
+    int[] arr = new int[size];
+    for (int i = 0; i < size; i++) {
       arr[i] = Integer.parseInt(st.nextToken());
     }
+
     Arrays.sort(arr);
 
+    int count = 0;
+
+    /// 좋은 수란 n이란 수가 현재 같은 배열에 다른 두 수의 합으로 만들어 지는 수
     for (int i = 0; i < arr.length; i++) {
       int start = 0;
-      int end = arr.length - 1;
-      int target = (int) arr[i];
-
+      int end = size - 1;
+      int sum = arr[i];
       while (start < end) {
-        if(start == i){
+        if (start == i) {
           start++;
           continue;
         }
-        if(end == i){
-          end --;
-          continue;
-        }
-        if(arr[start] + arr[end]==target){
-          ans++;
-          break;
-        }else if(arr[start] + arr[end]<target){
-          start++;
-        }else {
+        if (end == i) {
           end--;
+          continue;
+        }
+
+        if (arr[start] + arr[end] == sum) {
+          count++;
+          break;
+        } else if (arr[start] + arr[end] > sum) {
+          end--;
+        } else {
+          start++;
         }
       }
     }
-    bw.write(ans+"\n");
+    bw.write(String.valueOf(count));
     bw.flush();
   }
 }
