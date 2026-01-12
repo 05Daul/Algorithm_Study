@@ -41,6 +41,7 @@ public class bj11003 {
         deque.removeLast();
       }
       deque.addLast(new Node(i, nowNum));
+      /// 여기서 슬라이딩 윈도우 역할을 진행.
       if (deque.getFirst().index <= i - windowCount) {
         deque.removeFirst();
       }
