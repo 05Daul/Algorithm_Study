@@ -27,6 +27,7 @@ public class bj11724 {
       st = new StringTokenizer(br.readLine());
       int u = Integer.parseInt(st.nextToken());
       int v = Integer.parseInt(st.nextToken());
+      // get : index 가져오기 / add : value 추가
       nodes.get(u).add(v);
       nodes.get(v).add(u);
     }

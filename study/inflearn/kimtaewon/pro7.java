@@ -31,3 +31,4 @@ public class pro7 {
     stdout.close();
   }
 }
+//

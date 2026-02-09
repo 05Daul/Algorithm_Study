@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 public class bj11659 {
 
   /// 3. 구간합 구하기 s3
+
   public static void main(String[] args) throws IOException {
     //1. 첫 번째 줄에서 데이터의 갯수, 질의 갯수를 입력받음
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
