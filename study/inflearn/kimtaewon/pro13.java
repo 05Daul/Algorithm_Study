@@ -3,28 +3,31 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
-public class pro20 {
+public class pro13 {
 
   public static void main(String[] args) throws IOException {
+
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     int num = Integer.parseInt(br.readLine());
-    /// 에레토스테네스 체
 
-    int[] arr = new int[num + 1];
-    int ans = 0;
+    StringTokenizer st = new StringTokenizer(br.readLine());
 
-    for (int i = 2; i <= num; i++) {
-      if (arr[i] == 0) {
-        ans++;
-        for (int j = i; j <= num; j = j + i) {
-          arr[j] = 1;
-        }
+    int[] arr = new int[num+1];
+
+    for (int i = 1; i < arr.length; i++) {
+      arr[i] = Integer.parseInt(st.nextToken());
+    }
+    int temp = 0;
+
+    for (int i = 1; i < arr.length; i++) {
+      if (arr[i] > arr[i-1]) {
+        bw.write(arr[i] + " ");
       }
     }
-    bw.write(ans+"\n");
     bw.flush();
   }
 }
