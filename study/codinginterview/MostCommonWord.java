@@ -17,9 +17,8 @@ public class MostCommonWord {
 
     for (String word : words) {
 
-      if (word.isEmpty()) {
-        continue;
-      }
+      if (word.isEmpty()) continue;
+
       countMap.put(word, countMap.getOrDefault(word, 0) + 1);
       // Key로 get 없으면 default로 0. 아니면 +1
     }
@@ -32,7 +31,6 @@ public class MostCommonWord {
     int maxCount = 0;
 
     for (Map.Entry<String, Integer> entry : countMap.entrySet()) {
-
       if (entry.getValue() > maxCount) {
         mostCommon = entry.getKey();
         maxCount = entry.getValue();
