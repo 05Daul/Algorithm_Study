@@ -8,7 +8,6 @@ public class LongestPalindromeSubstring {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     char[] arr = br.readLine().toCharArray();
-
     System.out.println(longestPalindromeSubstring(arr));
   }
 
