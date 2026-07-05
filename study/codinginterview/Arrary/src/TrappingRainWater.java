@@ -34,10 +34,14 @@ public class TrappingRainWater {
 
     Deque<Integer> stack = new ArrayDeque<>();
 
+
     for (int i = 0; i < height.length; i++) {
       while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
+
+        // 스택에는 "감소하는 높이"만 쌓는다
         int bottom = stack.pop();
 
+        //만약 pop 하고 나서 스택이 비어있다면 → 왼쪽에 벽이 없다는 뜻이니 물을 가둘 수 없어서 break
         if (stack.isEmpty()) {
           break;
         }
