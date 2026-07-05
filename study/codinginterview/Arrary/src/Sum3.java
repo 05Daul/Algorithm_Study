@@ -16,6 +16,10 @@ public class Sum3 {
             intArr[i] = Integer.parseInt(st.nextToken());
         }
 
+        StringBuilder result = new StringBuilder();
+
+        long start = System.nanoTime();
+
         Arrays.sort(intArr);
 
         for (int i = 0; i < intArr.length - 2; i++) {
@@ -30,8 +34,12 @@ public class Sum3 {
                 int sum = intArr[i] + intArr[left] + intArr[right];
 
                 if (sum == 0) {
-                    bw.write(intArr[i] + " " + intArr[left] + " " + intArr[right]);
-                    bw.newLine();
+                    result.append(intArr[i])
+                            .append(" ")
+                            .append(intArr[left])
+                            .append(" ")
+                            .append(intArr[right])
+                            .append("\n");
 
                     left++;
                     right--;
@@ -51,6 +59,12 @@ public class Sum3 {
                 }
             }
         }
+
+        long end = System.nanoTime();
+
+        bw.write(result.toString());
+        bw.write("time = " + (end - start) / 1_000_000.0 + " ms");
+        bw.newLine();
 
         bw.flush();
         bw.close();
