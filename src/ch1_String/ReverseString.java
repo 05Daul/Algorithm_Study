@@ -8,17 +8,23 @@ public class ReverseString {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        char[] arr = br.readLine().toCharArray();
+        /*char[] arr = br.readLine().toCharArray();
 
         long start = System.nanoTime();
 
         reverseStr2(arr);
 
         long end = System.nanoTime();
+*/
 
-        bw.write(arr);
-        bw.newLine();
-        bw.write("실행 시간: " + (end - start) + " ns");
+        String arr= br.readLine();
+        StringBuilder sb = new StringBuilder(arr);
+        bw.write(String.valueOf(sb.reverse()));
+
+
+        //bw.write(arr);
+        //bw.newLine();
+        //bw.write("실행 시간: " + (end - start) + " ns");
         bw.flush();
     }
 
@@ -47,4 +53,5 @@ public class ReverseString {
             right--;
         }
     }
+
 }
