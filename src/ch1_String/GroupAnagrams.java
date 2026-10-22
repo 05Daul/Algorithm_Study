@@ -22,6 +22,7 @@ public class GroupAnagrams {
             String key = new String(chars);
 
             map.putIfAbsent(key, new ArrayList<>());
+            //    putIfAbsent : 키가 없을 때 새로운 리스트 생성
 
             map.get(key).add(str[i]);
 
